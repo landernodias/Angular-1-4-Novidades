@@ -8,11 +8,13 @@ import { SobreComponent } from './core/components/sobre/sobre.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    title: "Home",
   },
   {
     path: 'sobre',
-    component: SobreComponent
+    component: SobreComponent,
+    title: "Sobre",
   }
 ];
 
