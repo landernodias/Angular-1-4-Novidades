@@ -1,10 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
+//Components
+import { HeaderComponent } from './core/components/header/header.component';
+
+//nova forma de iniciar aplicação
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template:`
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+  `,
+  standalone: true,
+  imports: [CommonModule, RouterModule, HeaderComponent]
 })
-export class AppComponent {
-  title = 'Angular-14-Novidades';
-}
+export class AppComponent {}
