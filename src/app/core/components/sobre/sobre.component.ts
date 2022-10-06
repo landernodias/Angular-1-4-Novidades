@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { getRouteParams } from '../helpers/get-route-params';
 
 @Component({
   selector: 'app-sobre',
@@ -18,12 +19,16 @@ export class SobreComponent implements OnInit {
   });
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private activatedRoute: ActivatedRoute,
   ) { }
+
+  public id = getRouteParams('id');
 
   ngOnInit(): void {
     console.log(this.form.value.email);
     console.log(this.form.value.password);
+    console.log(this.id);
+    console.log(this.activatedRoute.snapshot.params['id']);// forma antiga de pegar parametro usando contrutor
   }
-
 }
